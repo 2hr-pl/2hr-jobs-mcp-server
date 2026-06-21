@@ -1,0 +1,40 @@
+services:
+  mcp-server:
+    build: .
+    restart: unless-stopped
+    ports:
+      - "8765:8765"
+    environment:
+      - JOBS_API_URL=${JOBS_API_URL}
+      - JOBS_API_KEY=${JOBS_API_KEY}
+      - REDIS_URL=redis://redis:6379/0
+      - MCP_HOST=0.0.0.0
+      - MCP_PORT=8765
+      - LOG_LEVEL=info
+      - WORKERS=1
+    depends_on:
+      redis:
+        condition: service_healthy
+    networks:
+      - mcp-network
+
+  redis:
+    image: redis:7-alpine
+    restart: unless-stopped
+    command: redis-server --maxmemory 256mb --maxmemory-policy allkeys-lru
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    volumes:
+      - redis_data:/data
+    networks:
+      - mcp-network
+
+volumes:
+  redis_data:
+
+networks:
+  mcp-network:
+    driver: bridge
