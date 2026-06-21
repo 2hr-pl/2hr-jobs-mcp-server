@@ -2,6 +2,14 @@
 
 **MCP server for Polish IT job board [2hr.pl](https://2hr.pl) — search IT jobs, salary data and market analytics via Model Context Protocol.**
 
+![Python](https://img.shields.io/badge/Python-3.10%2B-3776ab?logo=python&logoColor=white)
+![MCP](https://img.shields.io/badge/MCP-compatible-00ff87?logo=anthropic&logoColor=black)
+![FastMCP](https://img.shields.io/badge/FastMCP-1.0%2B-00ff87)
+![License](https://img.shields.io/badge/License-MIT-green)
+![Tools](https://img.shields.io/badge/Tools-11-blue)
+![Claude](https://img.shields.io/badge/Claude_Desktop-ready-orange?logo=anthropic)
+![Cursor](https://img.shields.io/badge/Cursor-ready-purple)
+
 Built with [FastMCP](https://github.com/jlowin/fastmcp) and Python 3.12. Works with Claude Desktop, Cursor, Windsurf, VS Code, and any MCP-compatible AI client.
 
 ---
